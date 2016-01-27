@@ -1,0 +1,17 @@
+yowtelegram:
+  build: .
+  ports:
+    - "5000:5000"
+  environment:
+    - PYTHONUNBUFFERED=0
+    - runInPort=5000
+#  volumes:
+#    - /Users/santilh/docker/yowsup:/root/.yowsup
+
+yowtelegram5001:
+  build: .
+  ports:
+    - "5001:5001"
+  environment:
+    - PYTHONUNBUFFERED=0
+    - runInPort=5001
