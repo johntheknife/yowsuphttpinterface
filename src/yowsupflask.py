@@ -17,11 +17,9 @@ def sendAsFlaskJson(message,ok):
 
 @app.route("/<credentials>/sendMessage", methods=[ 'POST'])
 def sendMessageToWA(credentials):
-    # if credentials!=constants.credentials:
-    #     return sendAsFlaskJson(ok='KO',message="credentials do not match")
+    credentials=str(credentials).replace('~slash~','/').replace('~plus~','+')
     if not hasattr(app,'layers') or credentials not in app.layers:
         return sendAsFlaskJson(ok=False,message='YowsupLayer not available')
-    credentials=str(credentials).replace('~slash~','/').replace('~plus~','+')
     jsonInput=request.get_json()
 
     if 'text' in jsonInput and 'chat_id' in jsonInput:
